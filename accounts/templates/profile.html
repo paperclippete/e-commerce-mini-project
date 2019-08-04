@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Profile{% endblock %}
+<!--You can also use user information from user object stored in session request, however db info can be edited-->
+{% block page_heading %}{{ profile.username|title }}'s Profile{% endblock %}
+
+{% block content %}
+<p>{{ profile.email }}</p>
+{% endblock %}

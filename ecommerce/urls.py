@@ -14,8 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include, re_path
+from accounts import urls as urls_accounts
+from products import urls as urls_products
+from cart import urls as urls_cart
+from checkout import urls as urls_checkout
+from search import urls as urls_search
+from products.views import all_products
+from django.views import static
+from .settings import MEDIA_ROOT
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', all_products, name="index"),
+    path('accounts/', include(urls_accounts)),
+    path('products/', include(urls_products)),
+    path('search/', include(urls_search)),
+    path('cart/', include(urls_cart)),
+    path('checkout/', include(urls_checkout)),
+    re_path(r'^media/(?P<path>.*)$', static.serve,{'document_root': MEDIA_ROOT}),
+    
 ]
