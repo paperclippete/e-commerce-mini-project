@@ -67,7 +67,6 @@ SecretStorage==2.3.1
 service-identity==16.0.0
 six==1.12.0
 stripe==2.33.0
-systemd-python==234
 ufw==0.36
 urllib3==1.25.3
 virtualenv==16.2.0
